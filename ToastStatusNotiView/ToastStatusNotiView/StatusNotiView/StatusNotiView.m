@@ -36,10 +36,7 @@
             make.height.equalTo(@22);
             make.bottom.equalTo(self).offset(-10);
         }];
-        self.infoLabel = [[UILabel alloc]init];
-        self.infoLabel.backgroundColor = [UIColor clearColor];
-        self.infoLabel.textColor = [UIColor whiteColor];
-        self.infoLabel.font = [UIFont fontWithName:@"Helvetica-Bold" size:17];
+
         [self addSubview:self.infoLabel];
         [self.infoLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(self.iconView.mas_right).offset(20);
@@ -156,6 +153,18 @@
         default:
             break;
     }
+}
+
+#pragma mark - Getter Methods
+
+-(UILabel *)infoLabel{
+    if (!_infoLabel) {
+        _infoLabel = [[UILabel alloc]init];
+        _infoLabel.backgroundColor = [UIColor clearColor];
+        _infoLabel.textColor = [UIColor whiteColor];
+        _infoLabel.font = [UIFont fontWithName:@"Helvetica-Bold" size:17];
+    }
+    return _infoLabel;
 }
 
 @end
